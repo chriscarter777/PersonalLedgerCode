@@ -301,7 +301,7 @@ namespace pla5.Data
       _logger.LogTrace("DataRepository is getting Accounts for user: {0}.", _userName);
       try
       {
-        return await _context.Accounts.Where(x => x.User == _userName).ToArrayAsync() ?? new Account[0];
+        return await _context.Accounts.Where(x => x.User == _userName).OrderBy(x => x.AcctType).ThenBy(x => x.Name).ToArrayAsync() ?? new Account[0];
       }
       catch (Exception e)
       {
@@ -392,7 +392,7 @@ namespace pla5.Data
         {
           await SeedUserCategoriesAsync();
         }
-        return await _context.Categories.Where(x => x.User == _userName).ToArrayAsync() ?? new Category[0];
+        return await _context.Categories.Where(x => x.User == _userName).OrderByDescending(x => x.Type).ThenBy(x => x.Name).ToArrayAsync() ?? new Category[0];
       }
       catch (Exception e)
       {
@@ -501,7 +501,7 @@ namespace pla5.Data
       _logger.LogTrace("DataRepository is getting Transactions for user: {0}.", _userName);
       try
       {
-        return await _context.Transactions.Where(x => x.User == _userName).ToArrayAsync() ?? new Transaction[0];
+        return await _context.Transactions.Where(x => x.User == _userName).OrderByDescending(x => x.Date).ToArrayAsync() ?? new Transaction[0];
       }
       catch (Exception e)
       {

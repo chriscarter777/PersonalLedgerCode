@@ -23,12 +23,12 @@
         <td>{{accountName(transaction.drAcct)}}</td>
         <td>{{accountName(transaction.crAcct)}}</td>
         <td>&nbsp;<span *ngIf="transaction.tax" class='glyphicon glyphicon-copy' style='color:green;'></span></td>
-        <td><a routerLink="./transaction-edit/{{transaction.id}}">Edit</a></td>
-        <td><a (click)="onDelete(transaction.id);">Delete</a></td>
+        <td><a class="btn btn-xs editlink" routerLink="./transaction-edit/{{transaction.id}}">Edit</a></td>
+        <td><a class="btn btn-xs deletelink" (click)="onDelete(transaction.id);">Delete</a></td>
       </tr>
     </tbody>
   </table>
-  <a routerLink="./transaction-add">Add New Transaction</a>
+  <a class="btn" id="addlink" routerLink="./transaction-add">Add New Transaction</a>
   <br />
   <router-outlet></router-outlet>
 </div>

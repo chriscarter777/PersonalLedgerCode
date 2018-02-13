@@ -246,6 +246,10 @@ select {
     list-style:none;
     -webkit-padding-start:0;
 }
+
+.red{
+    color:red;
+}
 /*#endregion*/
 /*#region Buttons*/
 .btn-success {

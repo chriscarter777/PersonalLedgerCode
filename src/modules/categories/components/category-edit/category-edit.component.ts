@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 import { Location } from '@angular/common';
 import { DataService } from '../../../shared/data.service';
 import { Category } from '../../../shared/interfaces'; 
@@ -21,22 +22,35 @@ export class CategoryEditComponent {
   ) { }
 
   ngOnInit() {
-    this.createForm();
+      var editlinks = document.getElementsByClassName("editlink");
+      for (var i = 0; i < editlinks.length; i++) {
+          editlinks[i].setAttribute("disabled", "true");
+      };
+      document.getElementById("addlink").setAttribute("disabled", "true");
+
+      const id = +this.route.snapshot.paramMap.get('id');
+    this.createForm(id);
   }
 
+  ngOnDestroy() {
+      var editlinks = document.getElementsByClassName("editlink");
+      for (var i = 0; i < editlinks.length; i++) {
+          editlinks[i].removeAttribute("disabled");
+      };
+      document.getElementById("addlink").removeAttribute("disabled");
+  }
 
-  createForm(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+  createForm(id): void {
     this.dataService.getCategory(id).subscribe(
       category => {
         this.editCategory = category;
-        this.instantiateForm();
+        this.defineForm();
       },
       error => alert("there was an error getting category.")
     );
   }
 
-  instantiateForm() {
+  defineForm() {
     this.form = new FormGroup({
       name: new FormControl(this.editCategory.name),
       tax: new FormControl(this.editCategory.tax),

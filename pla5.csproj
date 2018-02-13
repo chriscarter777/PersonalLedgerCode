@@ -19,6 +19,9 @@
     <None Remove="src\modules\app\components\not-found\not-found.component.ts" />
     <None Remove="src\modules\categories\categories.module.ts" />
     <None Remove="src\modules\categories\categories.routing.module.ts" />
+    <None Remove="src\modules\reports\components\report-list\report-list.component.ts" />
+    <None Remove="src\modules\reports\reports.module.ts" />
+    <None Remove="src\modules\reports\reports.routing.module.ts" />
     <None Remove="src\modules\transactions\transactions.module.ts" />
     <None Remove="src\modules\transactions\transactions.routing.module.ts" />
     <None Remove="src\modules\users\users.module.ts" />
@@ -53,6 +56,9 @@
     <TypeScriptCompile Include="src\modules\app\components\not-found\not-found.component.ts" />
     <TypeScriptCompile Include="src\modules\categories\categories.module.ts" />
     <TypeScriptCompile Include="src\modules\categories\categories.routing.module.ts" />
+    <TypeScriptCompile Include="src\modules\reports\components\report-list\report-list.component.ts" />
+    <TypeScriptCompile Include="src\modules\reports\reports.module.ts" />
+    <TypeScriptCompile Include="src\modules\reports\reports.routing.module.ts" />
     <TypeScriptCompile Include="src\modules\transactions\transactions.module.ts" />
     <TypeScriptCompile Include="src\modules\transactions\transactions.routing.module.ts" />
     <TypeScriptCompile Include="src\modules\users\users.module.ts" />

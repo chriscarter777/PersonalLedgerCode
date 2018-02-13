@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../../shared/data.service';
-import { Account, Category, Transaction } from '../../../shared/interfaces'; 
+import { Account, Category, Transaction } from '../../../shared/interfaces';
 
 @Component({
     selector: 'transaction-list',
@@ -15,46 +15,46 @@ export class TransactionListComponent {
 
     constructor(private dataService: DataService) {
 
-      this.dataService.transactionAdded.subscribe(
-        (data: Transaction) => {
-          console.log("transactionAdded received from data.service: " + JSON.stringify(data));
-          if (data === null) {
-            alert("There was a problem adding.");
-          }
-          else {
-            this.transactions.push(data);
-          }
-        },
-        error => alert("There was a problem adding.")
-      );
+        this.dataService.transactionAdded.subscribe(
+            (data: Transaction) => {
+                console.log("transactionAdded received from data.service: " + JSON.stringify(data));
+                if (data === null) {
+                    alert("There was a problem adding.");
+                }
+                else {
+                    this.transactions.push(data);
+                }
+            },
+            error => alert("There was a problem adding.")
+        );
 
-      this.dataService.transactionDeleted.subscribe(
-        (data: Transaction) => {
-          console.log("transactionDeleted received from data.service: " + JSON.stringify(data));
-          if (data === null) {
-            alert("There was a problem deleting.");
-          }
-          else {
-            var indextToDelete = this.transactions.findIndex((element) => element.id === data.id);
-            this.transactions.splice(indextToDelete, 1);
-          }
-        },
-        error => alert("There was a problem deleting.")
-      );
+        this.dataService.transactionDeleted.subscribe(
+            (data: Transaction) => {
+                console.log("transactionDeleted received from data.service: " + JSON.stringify(data));
+                if (data === null) {
+                    alert("There was a problem deleting.");
+                }
+                else {
+                    var indextToDelete = this.transactions.findIndex((element) => element.id === data.id);
+                    this.transactions.splice(indextToDelete, 1);
+                }
+            },
+            error => alert("There was a problem deleting.")
+        );
 
-      this.dataService.transactionUpdated.subscribe(
-        (data: Transaction) => {
-          console.log("transactionUpdated received from data.service: " + JSON.stringify(data));
-          if (data === null) {
-            alert("There was a problem updating.");
-          }
-          else {
-            var indexToUpdate = this.transactions.findIndex((element) => element.id == data.id);
-            this.transactions[indexToUpdate] = data;
-          }
-        },
-        error => alert("There was a problem updating.")
-      );
+        this.dataService.transactionUpdated.subscribe(
+            (data: Transaction) => {
+                console.log("transactionUpdated received from data.service: " + JSON.stringify(data));
+                if (data === null) {
+                    alert("There was a problem updating.");
+                }
+                else {
+                    var indexToUpdate = this.transactions.findIndex((element) => element.id == data.id);
+                    this.transactions[indexToUpdate] = data;
+                }
+            },
+            error => alert("There was a problem updating.")
+        );
     }  //ctor
 
     ngOnInit() {
@@ -95,10 +95,10 @@ export class TransactionListComponent {
     }
 
     onDelete(id: number): void {
-      var result: Transaction;
-      var indextToDelete = this.transactions.findIndex((element) => element.id === id);
-      var dateToDelete = this.transactions[indextToDelete].date;
-      var confirmation = confirm('Are you sure you want to delete transaction on ' + dateToDelete + '?');
-      if (confirmation) { this.dataService.deleteAccount(id); };
+        var result: Transaction;
+        var indextToDelete = this.transactions.findIndex((element) => element.id === id);
+        var dateToDelete = this.transactions[indextToDelete].date;
+        var confirmation = confirm('Are you sure you want to delete transaction on ' + dateToDelete + '?');
+        if (confirmation) { this.dataService.deleteAccount(id); };
     }
 }

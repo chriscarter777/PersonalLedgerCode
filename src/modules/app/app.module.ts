@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReportsModule } from '../reports/reports.module';
 import { TransactionsModule } from '../transactions/transactions.module';
 import { UsersModule } from '../users/users.module';
 
@@ -25,6 +26,7 @@ import { PageNotFoundComponent } from './components/not-found/not-found.componen
 
         AccountsModule,
         CategoriesModule,
+        ReportsModule,
         TransactionsModule,
         UsersModule,
 

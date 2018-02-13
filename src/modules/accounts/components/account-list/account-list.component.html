@@ -25,12 +25,12 @@
         <td class='right'>{{displayAsPercent(account.interest)}}</td>
         <td class='right'>{{account.limit ? displayAsDollar(account.limit) : '--'}}</td>
         <td class='right'>{{displayAsDollar(account.balance)}}</td>
-        <td><a routerLink="./account-edit/{{account.id}}">Edit</a></td>
-        <td><a (click)="onDelete(account.id);">Delete</a></td>
+        <td><a class="btn btn-xs editlink" routerLink="./account-edit/{{account.id}}">Edit</a></td>
+        <td><a class="btn btn-xs deletelink" (click)="onDelete(account.id);">Delete</a></td>
       </tr>
     </tbody>
   </table>
-  <a routerLink="./account-add">Add New Account</a>
+  <a class="btn" id="addlink" routerLink="./account-add">Add New Account</a>
   <br />
   <router-outlet></router-outlet>
 </div>

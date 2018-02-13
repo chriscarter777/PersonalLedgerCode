@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 import { Location } from '@angular/common';
 import { DataService } from '../../../shared/data.service';
 import { Category } from '../../../shared/interfaces'; 
@@ -21,12 +22,26 @@ export class CategoryAddComponent {
   ) { }
 
   ngOnInit() {
-    this.newCategory = this.freshNewCategory();
+      var editlinks = document.getElementsByClassName("editlink");
+      for (var i = 0; i < editlinks.length; i++) {
+          editlinks[i].setAttribute("disabled", "true");
+      };
+      document.getElementById("addlink").setAttribute("disabled", "true");
+
+      this.newCategory = this.freshNewCategory();
     this.form = new FormGroup({
       name: new FormControl(this.newCategory.name),
       tax: new FormControl(this.newCategory.tax),
       type: new FormControl(this.newCategory.type),
     });
+  }
+
+  ngOnDestroy() {
+      var editlinks = document.getElementsByClassName("editlink");
+      for (var i = 0; i < editlinks.length; i++) {
+          editlinks[i].removeAttribute("disabled");
+      };
+      document.getElementById("addlink").removeAttribute("disabled");
   }
 
   freshNewCategory() {

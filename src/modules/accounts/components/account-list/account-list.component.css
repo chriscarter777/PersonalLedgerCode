@@ -1,2 +1,10 @@
-﻿body {
+body {
+}
+
+.red {
+    color: red;
+}
+
+.greyed{
+    color:lightgray;
 }
