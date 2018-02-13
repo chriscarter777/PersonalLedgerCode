@@ -4,8 +4,8 @@ import { Category } from '../../../shared/interfaces';
 
 @Component({
     selector: 'category-list',
-    templateUrl: './categoryList.component.html',
-    styleUrls: ['./categoryList.component.css']
+    templateUrl: './category-list.component.html',
+    styleUrls: ['./category-list.component.css']
 })
 
 export class CategoryListComponent {

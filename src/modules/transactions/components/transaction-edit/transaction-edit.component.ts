@@ -7,8 +7,8 @@ import { Transaction } from '../../../shared/interfaces';
 
 @Component({
     selector: 'transaction-edit',
-    templateUrl: './transactionEdit.component.html',
-    styleUrls: ['./transactionEdit.component.css']
+    templateUrl: './transaction-edit.component.html',
+    styleUrls: ['./transaction-edit.component.css']
 })
 export class TransactionEditComponent {
   editTransaction: Transaction;

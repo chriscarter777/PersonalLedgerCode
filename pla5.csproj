@@ -14,10 +14,15 @@
 
   <ItemGroup>
     <None Remove="src\modules\accounts\accounts.module.ts" />
+    <None Remove="src\modules\accounts\accounts.routing.module.ts" />
     <None Remove="src\modules\app\app-routing.module.ts" />
     <None Remove="src\modules\app\components\not-found\not-found.component.ts" />
     <None Remove="src\modules\categories\categories.module.ts" />
+    <None Remove="src\modules\categories\categories.routing.module.ts" />
     <None Remove="src\modules\transactions\transactions.module.ts" />
+    <None Remove="src\modules\transactions\transactions.routing.module.ts" />
+    <None Remove="src\modules\users\users.module.ts" />
+    <None Remove="src\modules\users\users.routing.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,10 +48,15 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="src\modules\accounts\accounts.module.ts" />
+    <TypeScriptCompile Include="src\modules\accounts\accounts.routing.module.ts" />
     <TypeScriptCompile Include="src\modules\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\modules\app\components\not-found\not-found.component.ts" />
     <TypeScriptCompile Include="src\modules\categories\categories.module.ts" />
+    <TypeScriptCompile Include="src\modules\categories\categories.routing.module.ts" />
     <TypeScriptCompile Include="src\modules\transactions\transactions.module.ts" />
+    <TypeScriptCompile Include="src\modules\transactions\transactions.routing.module.ts" />
+    <TypeScriptCompile Include="src\modules\users\users.module.ts" />
+    <TypeScriptCompile Include="src\modules\users\users.routing.module.ts" />
   </ItemGroup>
 
 </Project>

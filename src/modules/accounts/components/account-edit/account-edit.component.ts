@@ -7,8 +7,8 @@ import { Account } from '../../../shared/interfaces';
 
 @Component({
   selector: 'account-edit',
-  templateUrl: './accountEdit.component.html',
-  styleUrls: ['./accountEdit.component.css']
+  templateUrl: './account-edit.component.html',
+  styleUrls: ['./account-edit.component.css']
 })
 export class AccountEditComponent {
   form: FormGroup;

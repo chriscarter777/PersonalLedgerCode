@@ -7,8 +7,8 @@ import { Transaction } from '../../../shared/interfaces';
 
 @Component({
     selector: 'transaction-add',
-    templateUrl: './transactionAdd.component.html',
-    styleUrls: ['./transactionAdd.component.css']
+    templateUrl: './transaction-add.component.html',
+    styleUrls: ['./transaction-add.component.css']
 })
 export class TransactionAddComponent {
   form: FormGroup;

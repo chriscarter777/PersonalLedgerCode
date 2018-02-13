@@ -53,7 +53,52 @@ platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/app-routing.module.ts":
+/***/ "../../../../../src/modules/accounts/accounts.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var account_add_component_1 = __webpack_require__("../../../../../src/modules/accounts/components/account-add/account-add.component.ts");
+var account_edit_component_1 = __webpack_require__("../../../../../src/modules/accounts/components/account-edit/account-edit.component.ts");
+var account_list_component_1 = __webpack_require__("../../../../../src/modules/accounts/components/account-list/account-list.component.ts");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var accounts_routing_module_1 = __webpack_require__("../../../../../src/modules/accounts/accounts.routing.module.ts");
+var AccountsModule = /** @class */ (function () {
+    function AccountsModule() {
+    }
+    AccountsModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.ReactiveFormsModule,
+                accounts_routing_module_1.AccountRoutingModule
+            ],
+            declarations: [
+                account_add_component_1.AccountAddComponent,
+                account_edit_component_1.AccountEditComponent,
+                account_list_component_1.AccountListComponent
+            ],
+            providers: [data_service_1.DataService]
+        })
+    ], AccountsModule);
+    return AccountsModule;
+}());
+exports.AccountsModule = AccountsModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/accounts/accounts.routing.module.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67,154 +112,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var accountAdd_component_1 = __webpack_require__("../../../../../src/modules/app/components/accountAdd/accountAdd.component.ts");
-var accountEdit_component_1 = __webpack_require__("../../../../../src/modules/app/components/accountEdit/accountEdit.component.ts");
-var accountList_component_1 = __webpack_require__("../../../../../src/modules/app/components/accountList/accountList.component.ts");
-var categoryList_component_1 = __webpack_require__("../../../../../src/modules/app/components/categoryList/categoryList.component.ts");
-var categoryAdd_component_1 = __webpack_require__("../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.ts");
-var categoryEdit_component_1 = __webpack_require__("../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.ts");
-var home_component_1 = __webpack_require__("../../../../../src/modules/app/components/home/home.component.ts");
-var transactionAdd_component_1 = __webpack_require__("../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.ts");
-var transactionEdit_component_1 = __webpack_require__("../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.ts");
-var transactionlist_component_1 = __webpack_require__("../../../../../src/modules/app/components/transactionList/transactionlist.component.ts");
-var userList_component_1 = __webpack_require__("../../../../../src/modules/app/components/userList/userList.component.ts");
-var not_found_component_1 = __webpack_require__("../../../../../src/modules/app/components/notFound/not-found.component.ts");
-var appRoutes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: home_component_1.HomeComponent },
+var account_add_component_1 = __webpack_require__("../../../../../src/modules/accounts/components/account-add/account-add.component.ts");
+var account_edit_component_1 = __webpack_require__("../../../../../src/modules/accounts/components/account-edit/account-edit.component.ts");
+var account_list_component_1 = __webpack_require__("../../../../../src/modules/accounts/components/account-list/account-list.component.ts");
+var accountsRoutes = [
     {
         path: 'accounts',
-        component: accountList_component_1.AccountListComponent,
+        component: account_list_component_1.AccountListComponent,
         children: [
             {
-                path: 'account-add', component: accountAdd_component_1.AccountAddComponent
+                path: 'account-add', component: account_add_component_1.AccountAddComponent
             },
-            { path: 'account-edit/:id', component: accountEdit_component_1.AccountEditComponent }
+            { path: 'account-edit/:id', component: account_edit_component_1.AccountEditComponent }
         ]
-    },
-    {
-        path: 'categories',
-        component: categoryList_component_1.CategoryListComponent,
-        children: [
-            { path: 'category-add', component: categoryAdd_component_1.CategoryAddComponent },
-            { path: 'category-edit/:id', component: categoryEdit_component_1.CategoryEditComponent }
-        ]
-    },
-    {
-        path: 'transactions',
-        component: transactionlist_component_1.TransactionListComponent,
-        children: [
-            { path: 'transaction-add', component: transactionAdd_component_1.TransactionAddComponent },
-            { path: 'transaction-edit/:id', component: transactionEdit_component_1.TransactionEditComponent }
-        ]
-    },
-    { path: 'users', component: userList_component_1.UserListComponent },
-    { path: 'Home/Main', redirectTo: 'home', pathMatch: 'full' },
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '**', component: not_found_component_1.PageNotFoundComponent }
-];
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
     }
-    AppRoutingModule = __decorate([
+];
+var AccountRoutingModule = /** @class */ (function () {
+    function AccountRoutingModule() {
+    }
+    AccountRoutingModule = __decorate([
         core_1.NgModule({
             imports: [
-                router_1.RouterModule.forRoot(appRoutes, { enableTracing: true } // for debugging
-                )
+                router_1.RouterModule.forChild(accountsRoutes)
             ],
             exports: [
                 router_1.RouterModule
             ]
         })
-    ], AppRoutingModule);
-    return AppRoutingModule;
+    ], AccountRoutingModule);
+    return AccountRoutingModule;
 }());
-exports.AppRoutingModule = AppRoutingModule;
+exports.AccountRoutingModule = AccountRoutingModule;
 
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/app.module.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var app_routing_module_1 = __webpack_require__("../../../../../src/modules/app/app-routing.module.ts");
-var platform_browser_1 = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-var common_1 = __webpack_require__("../../../common/esm5/common.js");
-var http_1 = __webpack_require__("../../../common/esm5/http.js");
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
-var accountAdd_component_1 = __webpack_require__("../../../../../src/modules/app/components/accountAdd/accountAdd.component.ts");
-var accountEdit_component_1 = __webpack_require__("../../../../../src/modules/app/components/accountEdit/accountEdit.component.ts");
-var accountList_component_1 = __webpack_require__("../../../../../src/modules/app/components/accountList/accountList.component.ts");
-var app_component_1 = __webpack_require__("../../../../../src/modules/app/components/app/app.component.ts");
-var categoryList_component_1 = __webpack_require__("../../../../../src/modules/app/components/categoryList/categoryList.component.ts");
-var categoryAdd_component_1 = __webpack_require__("../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.ts");
-var categoryEdit_component_1 = __webpack_require__("../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.ts");
-var home_component_1 = __webpack_require__("../../../../../src/modules/app/components/home/home.component.ts");
-var navmenu_component_1 = __webpack_require__("../../../../../src/modules/app/components/navmenu/navmenu.component.ts");
-var not_found_component_1 = __webpack_require__("../../../../../src/modules/app/components/notFound/not-found.component.ts");
-var transactionAdd_component_1 = __webpack_require__("../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.ts");
-var transactionEdit_component_1 = __webpack_require__("../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.ts");
-var transactionlist_component_1 = __webpack_require__("../../../../../src/modules/app/components/transactionList/transactionlist.component.ts");
-var userList_component_1 = __webpack_require__("../../../../../src/modules/app/components/userList/userList.component.ts");
-var AppModule = /** @class */ (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                app_routing_module_1.AppRoutingModule,
-                platform_browser_1.BrowserModule,
-                common_1.CommonModule,
-                http_1.HttpClientModule,
-                forms_1.ReactiveFormsModule,
-            ],
-            declarations: [
-                app_component_1.AppComponent,
-                home_component_1.HomeComponent,
-                navmenu_component_1.NavMenuComponent,
-                not_found_component_1.PageNotFoundComponent,
-                accountAdd_component_1.AccountAddComponent,
-                accountEdit_component_1.AccountEditComponent,
-                accountList_component_1.AccountListComponent,
-                categoryList_component_1.CategoryListComponent,
-                categoryAdd_component_1.CategoryAddComponent,
-                categoryEdit_component_1.CategoryEditComponent,
-                transactionAdd_component_1.TransactionAddComponent,
-                transactionEdit_component_1.TransactionEditComponent,
-                transactionlist_component_1.TransactionListComponent,
-                userList_component_1.UserListComponent
-            ],
-            providers: [
-                { provide: 'BASE_URL', useFactory: getBaseUrl },
-                data_service_1.DataService
-            ],
-            //set entry point
-            bootstrap: [app_component_1.AppComponent]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-exports.AppModule = AppModule;
-function getBaseUrl() {
-    return document.getElementsByTagName('base')[0].href;
-}
-exports.getBaseUrl = getBaseUrl;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/accountAdd/accountAdd.component.css":
+/***/ "../../../../../src/modules/accounts/components/account-add/account-add.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -232,14 +165,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountAdd/accountAdd.component.html":
+/***/ "../../../../../src/modules/accounts/components/account-add/account-add.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"accountAdd\">\r\n  <h4>Add</h4>\r\n\r\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Type</label>\r\n    <input type='radio' name=\"acctType\" formControlName=\"acctType\" value=\"Asset\" /> Asset\r\n    <input type='radio' name=\"acctType\" formControlName=\"acctType\" value=\"Liability\" /> Liability <br />\r\n    <label>Name</label>\r\n    <input type='text' name=\"name\" formControlName=\"name\" /> <br />\r\n    <label>Institution</label>\r\n    <input type='text' name=\"institution\" formControlName=\"institution\" /> <br />\r\n    <label>Number</label>\r\n    <input type='text' name=\"number\" formControlName=\"number\" /> <br />\r\n    <label>Interest Rate</label>\r\n    <input type='number' name=\"interest\" formControlName=\"interest\" />% <br />\r\n    <label>Limit<span class=\"pull-right\">$</span></label>\r\n    <input type='number' name=\"limit\" formControlName=\"limit\" /> <br />\r\n    <input type='submit' value=\"Add\" />\r\n    <button routerLink=\"/accounts\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountAdd/accountAdd.component.ts":
+/***/ "../../../../../src/modules/accounts/components/account-add/account-add.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -299,8 +232,8 @@ var AccountAddComponent = /** @class */ (function () {
     AccountAddComponent = __decorate([
         core_1.Component({
             selector: 'account-add',
-            template: __webpack_require__("../../../../../src/modules/app/components/accountAdd/accountAdd.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/accountAdd/accountAdd.component.css")]
+            template: __webpack_require__("../../../../../src/modules/accounts/components/account-add/account-add.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/accounts/components/account-add/account-add.component.css")]
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             data_service_1.DataService,
@@ -313,7 +246,7 @@ exports.AccountAddComponent = AccountAddComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountEdit/accountEdit.component.css":
+/***/ "../../../../../src/modules/accounts/components/account-edit/account-edit.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -331,14 +264,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountEdit/accountEdit.component.html":
+/***/ "../../../../../src/modules/accounts/components/account-edit/account-edit.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"accountEdit\">\r\n  <h4>Edit</h4>\r\n\r\n  <form *ngIf=\"form\" [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Type</label>\r\n    <input type='radio' name=\"acctType\" value=\"Asset\" formControlName=\"acctType\" /> Asset\r\n    <input type='radio' name=\"acctType\" value=\"Liability\" formControlName=\"acctType\" /> Liability <br />\r\n    <label>Name</label>\r\n    <input type='text' name=\"name\" formControlName=\"name\" /> <br />\r\n    <label>Institution</label>\r\n    <input type='text' name=\"institution\" formControlName=\"institution\" /> <br />\r\n    <label>Number</label>\r\n    <input type='text' name=\"number\" formControlName=\"number\" /> <br />\r\n    <label>Interest Rate</label>\r\n    <input type='number' name=\"interest\" formControlName=\"interest\" />% <br />\r\n    <label>Limit<span class=\"pull-right\">$</span></label>\r\n    <input type='number' name=\"limit\" formControlName=\"limit\" /> <br />\r\n    <input type='submit' value=\"Update\" />\r\n    <button routerLink=\"/accounts\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountEdit/accountEdit.component.ts":
+/***/ "../../../../../src/modules/accounts/components/account-edit/account-edit.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -404,8 +337,8 @@ var AccountEditComponent = /** @class */ (function () {
     AccountEditComponent = __decorate([
         core_1.Component({
             selector: 'account-edit',
-            template: __webpack_require__("../../../../../src/modules/app/components/accountEdit/accountEdit.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/accountEdit/accountEdit.component.css")]
+            template: __webpack_require__("../../../../../src/modules/accounts/components/account-edit/account-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/accounts/components/account-edit/account-edit.component.css")]
         }),
         __metadata("design:paramtypes", [data_service_1.DataService,
             router_1.ActivatedRoute,
@@ -418,7 +351,7 @@ exports.AccountEditComponent = AccountEditComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountList/accountList.component.css":
+/***/ "../../../../../src/modules/accounts/components/account-list/account-list.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -436,14 +369,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountList/accountList.component.html":
+/***/ "../../../../../src/modules/accounts/components/account-list/account-list.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"accounts\">\r\n  <p *ngIf=\"!accounts\"><em>Loading...</em></p>\r\n\r\n  <table>\r\n    <caption>Accounts</caption>\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Type</th>\r\n        <th>Name</th>\r\n        <th>Institution</th>\r\n        <th>Number</th>\r\n        <th>Interest</th>\r\n        <th>Limit</th>\r\n        <th>Balance</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let account of accounts\">\r\n        <td>{{account.id}}</td>\r\n        <td>{{account.acctType}}</td>\r\n        <td>{{account.name}}</td>\r\n        <td>{{account.institution}}</td>\r\n        <td>{{account.number}}</td>\r\n        <td class='right'>{{displayAsPercent(account.interest)}}</td>\r\n        <td class='right'>{{account.limit ? displayAsDollar(account.limit) : '--'}}</td>\r\n        <td class='right'>{{displayAsDollar(account.balance)}}</td>\r\n        <td><a routerLink=\"./account-edit/{{account.id}}\">Edit</a></td>\r\n        <td><a (click)=\"onDelete(account.id);\">Delete</a></td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <a routerLink=\"./account-add\">Add New Account</a>\r\n  <br />\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/accountList/accountList.component.ts":
+/***/ "../../../../../src/modules/accounts/components/account-list/account-list.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -516,8 +449,8 @@ var AccountListComponent = /** @class */ (function () {
     AccountListComponent = __decorate([
         core_1.Component({
             selector: 'account-list',
-            template: __webpack_require__("../../../../../src/modules/app/components/accountList/accountList.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/accountList/accountList.component.css")]
+            template: __webpack_require__("../../../../../src/modules/accounts/components/account-list/account-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/accounts/components/account-list/account-list.component.css")]
         }),
         __metadata("design:paramtypes", [data_service_1.DataService])
     ], AccountListComponent);
@@ -528,7 +461,174 @@ exports.AccountListComponent = AccountListComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/app/app.component.css":
+/***/ "../../../../../src/modules/app/app-routing.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var app_home_component_1 = __webpack_require__("../../../../../src/modules/app/components/app-home/app-home.component.ts");
+var not_found_component_1 = __webpack_require__("../../../../../src/modules/app/components/not-found/not-found.component.ts");
+var appRoutes = [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: app_home_component_1.HomeComponent },
+    { path: 'Home/Main', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '**', component: not_found_component_1.PageNotFoundComponent }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forRoot(appRoutes, { enableTracing: true } // for debugging
+                )
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+exports.AppRoutingModule = AppRoutingModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/app.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var accounts_module_1 = __webpack_require__("../../../../../src/modules/accounts/accounts.module.ts");
+var app_routing_module_1 = __webpack_require__("../../../../../src/modules/app/app-routing.module.ts");
+var categories_module_1 = __webpack_require__("../../../../../src/modules/categories/categories.module.ts");
+var platform_browser_1 = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var http_1 = __webpack_require__("../../../common/esm5/http.js");
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var transactions_module_1 = __webpack_require__("../../../../../src/modules/transactions/transactions.module.ts");
+var users_module_1 = __webpack_require__("../../../../../src/modules/users/users.module.ts");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var app_root_component_1 = __webpack_require__("../../../../../src/modules/app/components/app-root/app-root.component.ts");
+var app_home_component_1 = __webpack_require__("../../../../../src/modules/app/components/app-home/app-home.component.ts");
+var nav_menu_component_1 = __webpack_require__("../../../../../src/modules/app/components/nav-menu/nav-menu.component.ts");
+var not_found_component_1 = __webpack_require__("../../../../../src/modules/app/components/not-found/not-found.component.ts");
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                platform_browser_1.BrowserModule,
+                common_1.CommonModule,
+                http_1.HttpClientModule,
+                forms_1.ReactiveFormsModule,
+                accounts_module_1.AccountsModule,
+                categories_module_1.CategoriesModule,
+                transactions_module_1.TransactionsModule,
+                users_module_1.UsersModule,
+                app_routing_module_1.AppRoutingModule,
+            ],
+            declarations: [
+                app_root_component_1.AppComponent,
+                app_home_component_1.HomeComponent,
+                nav_menu_component_1.NavMenuComponent,
+                not_found_component_1.PageNotFoundComponent
+            ],
+            providers: [
+                { provide: 'BASE_URL', useFactory: getBaseUrl },
+                data_service_1.DataService
+            ],
+            bootstrap: [app_root_component_1.AppComponent]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
+function getBaseUrl() {
+    return document.getElementsByTagName('base')[0].href;
+}
+exports.getBaseUrl = getBaseUrl;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/app-home/app-home.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/app-home/app-home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mainTitle\">\r\n    <p class=\"mainTitle-sub\">Chris Carter's</p>\r\n    <p class=\"mainTitle-main\">PersonalLedger</p>\r\n</div>\r\n<div class=\"center lime\">\r\n    <p>A home bookkeeping application, using traditional debit-credit methodology, built as a hybrid MVC/SPA using:</p>\r\n    <ul class=\"unstyledList left indented35\">\r\n        <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>\r\n        <li><a>IdentityCore</a> for authentication and security</li>\r\n        <li><a>EntityFrameworkCore</a> for relational object mapping</li>\r\n        <li><a>XUnit</a>, <a>Karma</a> and <a>Protractor</a> for testing</li>\r\n        <li><a href='https://angular.io/'>Angular 5</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>\r\n        <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>\r\n    </ul>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/app-home/app-home.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+        this.title = 'PLA5 Home';
+    }
+    HomeComponent = __decorate([
+        core_1.Component({
+            selector: 'app-home',
+            template: __webpack_require__("../../../../../src/modules/app/components/app-home/app-home.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/app/components/app-home/app-home.component.css")]
+        })
+    ], HomeComponent);
+    return HomeComponent;
+}());
+exports.HomeComponent = HomeComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/app-root/app-root.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -546,14 +646,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/app/app.component.html":
+/***/ "../../../../../src/modules/app/components/app-root/app-root.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class='container-fluid'>\r\n    <div class='row'>\r\n        <div class='col-sm-2 nav-menu'>\r\n            <nav-menu></nav-menu>\r\n        </div>\r\n        <div class='col-sm-10 body-content'>\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/app/app.component.ts":
+/***/ "../../../../../src/modules/app/components/app-root/app-root.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -573,8 +673,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app-root',
-            template: __webpack_require__("../../../../../src/modules/app/components/app/app.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/app/app.component.css")]
+            template: __webpack_require__("../../../../../src/modules/app/components/app-root/app-root.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/app/components/app-root/app-root.component.css")]
         })
     ], AppComponent);
     return AppComponent;
@@ -584,7 +684,209 @@ exports.AppComponent = AppComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.css":
+/***/ "../../../../../src/modules/app/components/nav-menu/nav-menu.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n/* Highlighting rules for nav menu items */\r\n\r\nli.link-active a,\r\nli.link-active a:hover,\r\nli.link-active a:focus {\r\n    background-color: #4189C7;\r\n    color: white;\r\n}\r\n\r\n/* Keep the nav menu independent of scrolling and on top of other items */\r\n\r\n.main-nav {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 1;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    /* On small screens, convert the nav menu to a vertical sidebar */\r\n    .main-nav {\r\n        height: 100%;\r\n        width: calc(16% - 20px);\r\n    }\r\n    .navbar {\r\n        border-radius: 0px;\r\n        border-width: 0px;\r\n        height: 100%;\r\n    }\r\n    .navbar-header {\r\n        float: none;\r\n    }\r\n    .navbar-collapse {\r\n        border-top: 1px solid #444;\r\n        padding: 0px;\r\n    }\r\n    .navbar ul {\r\n        float: none;\r\n    }\r\n    .navbar li {\r\n        float: none;\r\n        font-size: 15px;\r\n        margin: 6px;\r\n    }\r\n    .navbar li a {\r\n        padding: 10px 16px;\r\n        border-radius: 4px;\r\n    }\r\n    .navbar a {\r\n        /* If a menu item's text is too long, truncate it */\r\n        width: 100%;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/nav-menu/nav-menu.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/home\">\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                 <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/accounts\">\r\n                        <span class='glyphicon glyphicon-credit-card'></span> Accounts\r\n                    </a>\r\n                </li>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/categories\">\r\n                        <span class='glyphicon glyphicon-folder-open'></span> Categories\r\n                    </a>\r\n                </li>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/transactions\">\r\n                        <span class='glyphicon glyphicon-list-alt'></span> Transactions\r\n                    </a>\r\n                </li>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/users\">\r\n                        <span class='glyphicon glyphicon-user'></span> Users\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/nav-menu/nav-menu.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var NavMenuComponent = /** @class */ (function () {
+    function NavMenuComponent() {
+    }
+    NavMenuComponent = __decorate([
+        core_1.Component({
+            selector: 'nav-menu',
+            template: __webpack_require__("../../../../../src/modules/app/components/nav-menu/nav-menu.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/app/components/nav-menu/nav-menu.component.css")]
+        })
+    ], NavMenuComponent);
+    return NavMenuComponent;
+}());
+exports.NavMenuComponent = NavMenuComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/not-found/not-found.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/not-found/not-found.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta charset=\"utf-8\" />\r\n    <title></title>\r\n</head>\r\n<body>\r\n  <h1>Error 404 - Page Not Found</h1>\r\n  <h3>Sorry, the page you requested was not found.</h3>\r\n</body>\r\n</html>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/app/components/not-found/not-found.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var PageNotFoundComponent = /** @class */ (function () {
+    function PageNotFoundComponent() {
+    }
+    PageNotFoundComponent = __decorate([
+        core_1.Component({
+            selector: 'not-found',
+            template: __webpack_require__("../../../../../src/modules/app/components/not-found/not-found.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/app/components/not-found/not-found.component.css")]
+        })
+    ], PageNotFoundComponent);
+    return PageNotFoundComponent;
+}());
+exports.PageNotFoundComponent = PageNotFoundComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/categories/categories.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var category_list_component_1 = __webpack_require__("../../../../../src/modules/categories/components/category-list/category-list.component.ts");
+var category_add_component_1 = __webpack_require__("../../../../../src/modules/categories/components/category-add/category-add.component.ts");
+var category_edit_component_1 = __webpack_require__("../../../../../src/modules/categories/components/category-edit/category-edit.component.ts");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var categories_routing_module_1 = __webpack_require__("../../../../../src/modules/categories/categories.routing.module.ts");
+var CategoriesModule = /** @class */ (function () {
+    function CategoriesModule() {
+    }
+    CategoriesModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.ReactiveFormsModule,
+                categories_routing_module_1.CategoryRoutingModule
+            ],
+            declarations: [
+                category_add_component_1.CategoryAddComponent,
+                category_edit_component_1.CategoryEditComponent,
+                category_list_component_1.CategoryListComponent
+            ],
+            providers: [data_service_1.DataService]
+        })
+    ], CategoriesModule);
+    return CategoriesModule;
+}());
+exports.CategoriesModule = CategoriesModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/categories/categories.routing.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var category_list_component_1 = __webpack_require__("../../../../../src/modules/categories/components/category-list/category-list.component.ts");
+var category_add_component_1 = __webpack_require__("../../../../../src/modules/categories/components/category-add/category-add.component.ts");
+var category_edit_component_1 = __webpack_require__("../../../../../src/modules/categories/components/category-edit/category-edit.component.ts");
+var categoriesRoutes = [
+    {
+        path: 'categories',
+        component: category_list_component_1.CategoryListComponent,
+        children: [
+            { path: 'category-add', component: category_add_component_1.CategoryAddComponent },
+            { path: 'category-edit/:id', component: category_edit_component_1.CategoryEditComponent }
+        ]
+    }
+];
+var CategoryRoutingModule = /** @class */ (function () {
+    function CategoryRoutingModule() {
+    }
+    CategoryRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forChild(categoriesRoutes)
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
+        })
+    ], CategoryRoutingModule);
+    return CategoryRoutingModule;
+}());
+exports.CategoryRoutingModule = CategoryRoutingModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/categories/components/category-add/category-add.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -602,14 +904,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.html":
+/***/ "../../../../../src/modules/categories/components/category-add/category-add.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"categoryAdd\">\r\n  <h4>Add</h4>\r\n\r\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Name</label>\r\n    <input type='text' name=\"name\" formControlName=\"name\" /> <br />\r\n    <label>Type</label>\r\n    <select name=\"type\" formControlName=\"type\">\r\n      <option value=\"Expense\">Expense</option>\r\n      <option value=\"Income\">Income</option>\r\n      <option value=\"Other\">Other</option>\r\n    </select> <br />\r\n    <!--<input type='text' name=\"type\" formControlName=\"type\" /> <br />-->\r\n    <label>Tax</label>\r\n    <input type='checkbox' name=\"tax\" value=\"true\" formControlName=\"tax\" /> <br />\r\n    <input type='submit' value=\"Add\" />\r\n    <button routerLink=\"/categories\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.ts":
+/***/ "../../../../../src/modules/categories/components/category-add/category-add.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -661,8 +963,8 @@ var CategoryAddComponent = /** @class */ (function () {
     CategoryAddComponent = __decorate([
         core_1.Component({
             selector: 'category-add',
-            template: __webpack_require__("../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/categoryAdd/categoryAdd.component.css")]
+            template: __webpack_require__("../../../../../src/modules/categories/components/category-add/category-add.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/categories/components/category-add/category-add.component.css")]
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             data_service_1.DataService,
@@ -675,7 +977,7 @@ exports.CategoryAddComponent = CategoryAddComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.css":
+/***/ "../../../../../src/modules/categories/components/category-edit/category-edit.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -693,14 +995,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.html":
+/***/ "../../../../../src/modules/categories/components/category-edit/category-edit.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"categoryEdit\">\r\n  <h4>Edit</h4>\r\n\r\n  <form *ngIf=\"form\" [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Name</label>\r\n    <input type='text' name=\"name\" formControlName=\"name\" /> <br />\r\n    <label>Type</label>\r\n    <select name=\"type\" formControlName=\"type\">\r\n      <option value=\"Expense\">Expense</option>\r\n      <option value=\"Income\">Income</option>\r\n      <option value=\"Other\">Other</option>\r\n    </select> <br />\r\n    <!--<input type='text' name=\"type\" formControlName=\"type\" /> <br />-->\r\n    <label>Tax</label>\r\n    <input type='checkbox' name=\"tax\" value=\"true\" formControlName=\"tax\" /> <br />\r\n    <input type='submit' value=\"Update\" />\r\n    <button routerLink=\"/categories\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.ts":
+/***/ "../../../../../src/modules/categories/components/category-edit/category-edit.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -758,8 +1060,8 @@ var CategoryEditComponent = /** @class */ (function () {
     CategoryEditComponent = __decorate([
         core_1.Component({
             selector: 'category-edit',
-            template: __webpack_require__("../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/categoryEdit/categoryEdit.component.css")]
+            template: __webpack_require__("../../../../../src/modules/categories/components/category-edit/category-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/categories/components/category-edit/category-edit.component.css")]
         }),
         __metadata("design:paramtypes", [data_service_1.DataService,
             router_1.ActivatedRoute,
@@ -772,7 +1074,7 @@ exports.CategoryEditComponent = CategoryEditComponent;
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryList/categoryList.component.css":
+/***/ "../../../../../src/modules/categories/components/category-list/category-list.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -790,14 +1092,14 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryList/categoryList.component.html":
+/***/ "../../../../../src/modules/categories/components/category-list/category-list.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"categories\">\r\n  <p *ngIf=\"!categories\"><em>Loading...</em></p>\r\n\r\n  <table>\r\n    <caption>Categories</caption>\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Name</th>\r\n        <th>Tax?</th>\r\n        <th>Type</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let category of categories\">\r\n        <td>{{category.id}}</td>\r\n        <td>{{category.name}}</td>\r\n        <td>&nbsp;<span *ngIf=\"category.tax\" class='glyphicon glyphicon-record' style='color:green;'></span></td>\r\n        <td>{{category.type}}</td>\r\n        <td><a routerLink=\"./category-edit/{{category.id}}\">Edit</a></td>\r\n        <td><a (click)=\"onDelete(category.id);\">Delete</a></td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <a routerLink=\"./category-add\">Add New Category</a>\r\n  <br />\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/modules/app/components/categoryList/categoryList.component.ts":
+/***/ "../../../../../src/modules/categories/components/category-list/category-list.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -868,588 +1170,14 @@ var CategoryListComponent = /** @class */ (function () {
     CategoryListComponent = __decorate([
         core_1.Component({
             selector: 'category-list',
-            template: __webpack_require__("../../../../../src/modules/app/components/categoryList/categoryList.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/categoryList/categoryList.component.css")]
+            template: __webpack_require__("../../../../../src/modules/categories/components/category-list/category-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/categories/components/category-list/category-list.component.css")]
         }),
         __metadata("design:paramtypes", [data_service_1.DataService])
     ], CategoryListComponent);
     return CategoryListComponent;
 }());
 exports.CategoryListComponent = CategoryListComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/home/home.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"mainTitle\">\r\n    <p class=\"mainTitle-sub\">Chris Carter's</p>\r\n    <p class=\"mainTitle-main\">PersonalLedger</p>\r\n</div>\r\n<div class=\"center lime\">\r\n    <p>A home bookkeeping application, using traditional debit-credit methodology, built as a hybrid MVC/SPA using:</p>\r\n    <ul class=\"unstyledList left indented35\">\r\n        <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>\r\n        <li><a>IdentityCore</a> for authentication and security</li>\r\n        <li><a>EntityFrameworkCore</a> for relational object mapping</li>\r\n        <li><a>XUnit</a>, <a>Karma</a> and <a>Protractor</a> for testing</li>\r\n        <li><a href='https://angular.io/'>Angular 5</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>\r\n        <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>\r\n    </ul>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/home/home.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
-        this.title = 'PLA5 Home';
-    }
-    HomeComponent = __decorate([
-        core_1.Component({
-            selector: 'app-home',
-            template: __webpack_require__("../../../../../src/modules/app/components/home/home.component.html")
-        })
-    ], HomeComponent);
-    return HomeComponent;
-}());
-exports.HomeComponent = HomeComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/navmenu/navmenu.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n/* Highlighting rules for nav menu items */\r\n\r\nli.link-active a,\r\nli.link-active a:hover,\r\nli.link-active a:focus {\r\n    background-color: #4189C7;\r\n    color: white;\r\n}\r\n\r\n/* Keep the nav menu independent of scrolling and on top of other items */\r\n\r\n.main-nav {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 1;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    /* On small screens, convert the nav menu to a vertical sidebar */\r\n    .main-nav {\r\n        height: 100%;\r\n        width: calc(16% - 20px);\r\n    }\r\n    .navbar {\r\n        border-radius: 0px;\r\n        border-width: 0px;\r\n        height: 100%;\r\n    }\r\n    .navbar-header {\r\n        float: none;\r\n    }\r\n    .navbar-collapse {\r\n        border-top: 1px solid #444;\r\n        padding: 0px;\r\n    }\r\n    .navbar ul {\r\n        float: none;\r\n    }\r\n    .navbar li {\r\n        float: none;\r\n        font-size: 15px;\r\n        margin: 6px;\r\n    }\r\n    .navbar li a {\r\n        padding: 10px 16px;\r\n        border-radius: 4px;\r\n    }\r\n    .navbar a {\r\n        /* If a menu item's text is too long, truncate it */\r\n        width: 100%;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/navmenu/navmenu.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<nav class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/home\">\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                 <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/accounts\">\r\n                        <span class='glyphicon glyphicon-credit-card'></span> Accounts\r\n                    </a>\r\n                </li>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/categories\">\r\n                        <span class='glyphicon glyphicon-folder-open'></span> Categories\r\n                    </a>\r\n                </li>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/transactions\">\r\n                        <span class='glyphicon glyphicon-list-alt'></span> Transactions\r\n                    </a>\r\n                </li>\r\n                <li routerLinkActive=\"link-active\">\r\n                    <a routerLink=\"/users\">\r\n                        <span class='glyphicon glyphicon-user'></span> Users\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/navmenu/navmenu.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var NavMenuComponent = /** @class */ (function () {
-    function NavMenuComponent() {
-    }
-    NavMenuComponent = __decorate([
-        core_1.Component({
-            selector: 'nav-menu',
-            template: __webpack_require__("../../../../../src/modules/app/components/navmenu/navmenu.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/navmenu/navmenu.component.css")]
-        })
-    ], NavMenuComponent);
-    return NavMenuComponent;
-}());
-exports.NavMenuComponent = NavMenuComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/notFound/not-found.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/notFound/not-found.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta charset=\"utf-8\" />\r\n    <title></title>\r\n</head>\r\n<body>\r\n  <h1>Error 404 - Page Not Found</h1>\r\n  <h3>Sorry, the page you requested was not found.</h3>\r\n</body>\r\n</html>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/notFound/not-found.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var PageNotFoundComponent = /** @class */ (function () {
-    function PageNotFoundComponent() {
-    }
-    PageNotFoundComponent = __decorate([
-        core_1.Component({
-            selector: 'not-found',
-            template: __webpack_require__("../../../../../src/modules/app/components/notFound/not-found.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/notFound/not-found.component.css")]
-        })
-    ], PageNotFoundComponent);
-    return PageNotFoundComponent;
-}());
-exports.PageNotFoundComponent = PageNotFoundComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {\r\n}\r\n\r\nlabel {\r\n  width: 100px;\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"transactionAdd\">\r\n  <h4>Add</h4>\r\n\r\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Date</label>\r\n    <input type='date' name=\"date\" formControlName=\"date\" /> <br />\r\n    <label>Category</label>\r\n    <input type='text' name=\"category\" formControlName=\"category\" /> <br />\r\n    <label>Amount<span class=\"pull-right\">$</span></label>\r\n    <input type='number' name=\"amount\" formControlName=\"amount\" /> <br />\r\n    <label>Debit Account</label>\r\n    <input type='text' name=\"drAccount\" formControlName=\"drAccount\" /> <br />\r\n    <label>Credit Account</label>\r\n    <input type='text' name=\"crAccount\" formControlName=\"crAccount\" /> <br />\r\n    <label>Tax</label>\r\n    <input type='checkbox' name=\"tax\" value=\"true\" formControlName=\"tax\" />\r\n    <input type='submit' value=\"Add\" />\r\n    <button routerLink=\"/transactions\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var common_1 = __webpack_require__("../../../common/esm5/common.js");
-var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
-var TransactionAddComponent = /** @class */ (function () {
-    function TransactionAddComponent(route, dataService, location) {
-        this.route = route;
-        this.dataService = dataService;
-        this.location = location;
-        this.displayAsDollar = function (amt) { return '$ ' + amt.toFixed(2); };
-    }
-    TransactionAddComponent.prototype.ngOnInit = function () {
-        this.newTransaction = this.freshNewTransaction();
-        this.form = new forms_1.FormGroup({
-            amount: new forms_1.FormControl(this.newTransaction.amount),
-            category: new forms_1.FormControl(this.newTransaction.category),
-            crAcct: new forms_1.FormControl(this.newTransaction.crAcct),
-            date: new forms_1.FormControl(this.newTransaction.date),
-            drAcct: new forms_1.FormControl(this.newTransaction.drAcct),
-            tax: new forms_1.FormControl(this.newTransaction.tax),
-        });
-    };
-    TransactionAddComponent.prototype.freshNewTransaction = function () {
-        return { id: null, amount: 0, category: 0, crAcct: 0, date: '', drAcct: 0, tax: false };
-    };
-    TransactionAddComponent.prototype.goBack = function () {
-        this.location.back();
-    };
-    TransactionAddComponent.prototype.onSubmit = function () {
-        this.newTransaction.amount = this.form.get('amount').value;
-        this.newTransaction.category = this.form.get('category').value;
-        this.newTransaction.crAcct = this.form.get('crAcct').value;
-        this.newTransaction.date = this.form.get('date').value;
-        this.newTransaction.drAcct = this.form.get('drAcct').value;
-        this.newTransaction.tax = this.form.get('tax').value;
-        this.dataService.addTransaction(this.newTransaction);
-        //reset
-        this.ngOnInit();
-        this.goBack();
-    };
-    TransactionAddComponent = __decorate([
-        core_1.Component({
-            selector: 'transaction-add',
-            template: __webpack_require__("../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/transactionAdd/transactionAdd.component.css")]
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            data_service_1.DataService,
-            common_1.Location])
-    ], TransactionAddComponent);
-    return TransactionAddComponent;
-}());
-exports.TransactionAddComponent = TransactionAddComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {\r\n}\r\n\r\nlabel {\r\n  width: 100px;\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"transactionEdit\">\r\n  <h4>Edit</h4>\r\n\r\n  <form *ngIf=\"form\" [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Date</label>\r\n    <input type='date' name=\"date\" formControlName=\"date\" /> <br />\r\n    <label>Category</label>\r\n    <input type='text' name=\"category\" formControlName=\"category\" /> <br />\r\n    <label>Amount<span class=\"pull-right\">$</span></label>\r\n    <input type='number' name=\"amount\" formControlName=\"amount\" /> <br />\r\n    <label>Debit Account</label>\r\n    <input type='text' name=\"drAcct\" formControlName=\"drAcct\" /> <br />\r\n    <label>Credit Account</label>\r\n    <input type='text' name=\"crAcct\" formControlName=\"crAcct\" /> <br />\r\n    <label>Tax</label>\r\n    <input type='checkbox' name=\"tax\" value=\"true\" formControlName=\"tax\" />\r\n    <input type='submit' value=\"Update\" />\r\n    <button routerLink=\"/transactions\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var common_1 = __webpack_require__("../../../common/esm5/common.js");
-var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
-var TransactionEditComponent = /** @class */ (function () {
-    function TransactionEditComponent(dataService, route, location) {
-        this.dataService = dataService;
-        this.route = route;
-        this.location = location;
-        this.displayAsDollar = function (amt) { return '$ ' + amt.toFixed(2); };
-    }
-    TransactionEditComponent.prototype.ngOnInit = function () {
-        this.createForm();
-    };
-    TransactionEditComponent.prototype.createForm = function () {
-        var _this = this;
-        var id = +this.route.snapshot.paramMap.get('id');
-        this.dataService.getTransaction(id).subscribe(function (transaction) {
-            _this.editTransaction = transaction;
-            _this.instantiateForm();
-        }, function (error) { return alert("there was an error getting transaction."); });
-    };
-    TransactionEditComponent.prototype.instantiateForm = function () {
-        this.form = new forms_1.FormGroup({
-            amount: new forms_1.FormControl(this.editTransaction.amount),
-            category: new forms_1.FormControl(this.editTransaction.category),
-            crAcct: new forms_1.FormControl(this.editTransaction.crAcct),
-            date: new forms_1.FormControl(this.editTransaction.date),
-            drAcct: new forms_1.FormControl(this.editTransaction.drAcct),
-            tax: new forms_1.FormControl(this.editTransaction.tax),
-        });
-    };
-    TransactionEditComponent.prototype.goBack = function () {
-        this.location.back();
-    };
-    TransactionEditComponent.prototype.onSubmit = function () {
-        this.editTransaction.amount = this.form.get('amount').value;
-        this.editTransaction.category = this.form.get('category').value;
-        this.editTransaction.crAcct = this.form.get('crAcct').value;
-        this.editTransaction.date = this.form.get('date').value;
-        this.editTransaction.drAcct = this.form.get('drAcct').value;
-        this.editTransaction.tax = this.form.get('tax').value;
-        this.dataService.updateTransaction(this.editTransaction);
-        //reset
-        this.goBack();
-    };
-    TransactionEditComponent = __decorate([
-        core_1.Component({
-            selector: 'transaction-edit',
-            template: __webpack_require__("../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/transactionEdit/transactionEdit.component.css")]
-        }),
-        __metadata("design:paramtypes", [data_service_1.DataService,
-            router_1.ActivatedRoute,
-            common_1.Location])
-    ], TransactionEditComponent);
-    return TransactionEditComponent;
-}());
-exports.TransactionEditComponent = TransactionEditComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionList/transactionList.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionList/transactionList.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"transactions\">\r\n  <p *ngIf=\"!transactions\"><em>Loading...</em></p>\r\n\r\n  <table>\r\n    <caption>Transactions</caption>\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Date</th>\r\n        <th>Amount</th>\r\n        <th>Category</th>\r\n        <th>Debit Account</th>\r\n        <th>Credit Account</th>\r\n        <th>Tax?</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let transaction of transactions\">\r\n        <td>{{transaction.id}}</td>\r\n        <td>{{transaction.date | date}}</td>\r\n        <td className='right'>{{displayAsDollar(transaction.amount)}}</td>\r\n        <td>{{categoryName(transaction.category)}}</td>\r\n        <td>{{accountName(transaction.drAcct)}}</td>\r\n        <td>{{accountName(transaction.crAcct)}}</td>\r\n        <td>&nbsp;<span *ngIf=\"transaction.tax\" class='glyphicon glyphicon-copy' style='color:green;'></span></td>\r\n        <td><a routerLink=\"./transaction-edit/{{transaction.id}}\">Edit</a></td>\r\n        <td><a (click)=\"onDelete(transaction.id);\">Delete</a></td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <a routerLink=\"./transaction-add\">Add New Transaction</a>\r\n  <br />\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/transactionList/transactionlist.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
-var TransactionListComponent = /** @class */ (function () {
-    function TransactionListComponent(dataService) {
-        var _this = this;
-        this.dataService = dataService;
-        this.displayAsDollar = function (amt) { return '$ ' + amt.toFixed(2); };
-        this.dataService.transactionAdded.subscribe(function (data) {
-            console.log("transactionAdded received from data.service: " + JSON.stringify(data));
-            if (data === null) {
-                alert("There was a problem adding.");
-            }
-            else {
-                _this.transactions.push(data);
-            }
-        }, function (error) { return alert("There was a problem adding."); });
-        this.dataService.transactionDeleted.subscribe(function (data) {
-            console.log("transactionDeleted received from data.service: " + JSON.stringify(data));
-            if (data === null) {
-                alert("There was a problem deleting.");
-            }
-            else {
-                var indextToDelete = _this.transactions.findIndex(function (element) { return element.id === data.id; });
-                _this.transactions.splice(indextToDelete, 1);
-            }
-        }, function (error) { return alert("There was a problem deleting."); });
-        this.dataService.transactionUpdated.subscribe(function (data) {
-            console.log("transactionUpdated received from data.service: " + JSON.stringify(data));
-            if (data === null) {
-                alert("There was a problem updating.");
-            }
-            else {
-                var indexToUpdate = _this.transactions.findIndex(function (element) { return element.id == data.id; });
-                _this.transactions[indexToUpdate] = data;
-            }
-        }, function (error) { return alert("There was a problem updating."); });
-    } //ctor
-    TransactionListComponent.prototype.ngOnInit = function () {
-        this.getAccounts();
-        this.getCategories();
-        this.getTransactions();
-    };
-    TransactionListComponent.prototype.accountName = function (accountId) {
-        return this.accounts.find(function (element) { return element.id === accountId; }).name;
-    };
-    TransactionListComponent.prototype.categoryName = function (categoryId) {
-        return this.categories.find(function (element) { return element.id === categoryId; }).name;
-    };
-    TransactionListComponent.prototype.getAccounts = function () {
-        var _this = this;
-        this.dataService.getAccounts().subscribe(function (accounts) { return _this.accounts = accounts; }, function (error) { return alert("there was an error getting accounts."); });
-    };
-    TransactionListComponent.prototype.getCategories = function () {
-        var _this = this;
-        this.dataService.getCategories().subscribe(function (categories) { return _this.categories = categories; }, function (error) { return alert("there was an error getting categories."); });
-    };
-    TransactionListComponent.prototype.getTransactions = function () {
-        var _this = this;
-        this.dataService.getTransactions().subscribe(function (transactions) { return _this.transactions = transactions; }, function (error) { return alert("there was an error getting transactions."); });
-    };
-    TransactionListComponent.prototype.onDelete = function (id) {
-        var result;
-        var indextToDelete = this.transactions.findIndex(function (element) { return element.id === id; });
-        var dateToDelete = this.transactions[indextToDelete].date;
-        var confirmation = confirm('Are you sure you want to delete transaction on ' + dateToDelete + '?');
-        if (confirmation) {
-            this.dataService.deleteAccount(id);
-        }
-        ;
-    };
-    TransactionListComponent = __decorate([
-        core_1.Component({
-            selector: 'transaction-list',
-            template: __webpack_require__("../../../../../src/modules/app/components/transactionList/transactionList.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/transactionList/transactionList.component.css")]
-        }),
-        __metadata("design:paramtypes", [data_service_1.DataService])
-    ], TransactionListComponent);
-    return TransactionListComponent;
-}());
-exports.TransactionListComponent = TransactionListComponent;
-
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/userList/userList.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "body {\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/userList/userList.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"users\">\r\n  <p *ngIf=\"!users\"><em>Loading...</em></p>\r\n\r\n  <table>\r\n    <caption>Users</caption>\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Username</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.id}}</td>\r\n        <td>{{user.userName}}</td>\r\n        <td><input type='checkbox' checked={{user.admin}} (Change)=\"onToggleAdmin(user.id)\" /></td>\r\n        <td><a (click)=\"onReset(user.id);\">Reset Password</a></td>\r\n        <td><a (click)=\"onDelete(user.id);\">Delete</a></td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/modules/app/components/userList/userList.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
-var UserListComponent = /** @class */ (function () {
-    function UserListComponent(dataService) {
-        var _this = this;
-        this.dataService = dataService;
-        this.dataService.userDeleted.subscribe(function (data) {
-            console.log("accountDeleted received from data.service: " + JSON.stringify(data));
-            if (data === null) {
-                alert("There was a problem deleting.");
-            }
-            else {
-                var indextToDelete = _this.users.findIndex(function (element) { return element.id === data.id; });
-                _this.users.splice(indextToDelete, 1);
-            }
-        }, function (error) { return alert("There was a problem deleting."); });
-    }
-    UserListComponent.prototype.ngOnInit = function () {
-        this.getUsers();
-    };
-    UserListComponent.prototype.getUsers = function () {
-        var _this = this;
-        this.dataService.getUsers().subscribe(function (users) { return _this.users = users; });
-    };
-    UserListComponent.prototype.onDelete = function (id) {
-        var confirmation = confirm('are you sure you want to delete ' + this.users.find(function (element) { return element.id == id; }).userName + '?');
-        if (confirmation) {
-            this.dataService.deleteUser(id);
-        }
-        ;
-    };
-    UserListComponent.prototype.onToggleAdmin = function (id) {
-        var indexToToggle = this.users.findIndex(function (element) { return element.id === id; });
-        if (this.users[indexToToggle].admin === true) {
-            this.users[indexToToggle].admin = false;
-            this.dataService.unmakeAdmin(id);
-        }
-        else {
-            this.users[indexToToggle].admin = true;
-            this.dataService.makeAdmin(id);
-        }
-    };
-    UserListComponent.prototype.onReset = function (id) {
-        this.dataService.resetPassword(id, "Password?123");
-    };
-    UserListComponent = __decorate([
-        core_1.Component({
-            selector: 'user-list',
-            template: __webpack_require__("../../../../../src/modules/app/components/userList/userList.component.html"),
-            styles: [__webpack_require__("../../../../../src/modules/app/components/userList/userList.component.css")]
-        }),
-        __metadata("design:paramtypes", [data_service_1.DataService])
-    ], UserListComponent);
-    return UserListComponent;
-}());
-exports.UserListComponent = UserListComponent;
 
 
 /***/ }),
@@ -1689,6 +1417,604 @@ var DataService = /** @class */ (function () {
     return DataService;
 }());
 exports.DataService = DataService;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n}\r\n\r\nlabel {\r\n  width: 100px;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"transactionAdd\">\r\n  <h4>Add</h4>\r\n\r\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Date</label>\r\n    <input type='date' name=\"date\" formControlName=\"date\" /> <br />\r\n    <label>Category</label>\r\n    <input type='text' name=\"category\" formControlName=\"category\" /> <br />\r\n    <label>Amount<span class=\"pull-right\">$</span></label>\r\n    <input type='number' name=\"amount\" formControlName=\"amount\" /> <br />\r\n    <label>Debit Account</label>\r\n    <input type='text' name=\"drAccount\" formControlName=\"drAccount\" /> <br />\r\n    <label>Credit Account</label>\r\n    <input type='text' name=\"crAccount\" formControlName=\"crAccount\" /> <br />\r\n    <label>Tax</label>\r\n    <input type='checkbox' name=\"tax\" value=\"true\" formControlName=\"tax\" />\r\n    <input type='submit' value=\"Add\" />\r\n    <button routerLink=\"/transactions\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var TransactionAddComponent = /** @class */ (function () {
+    function TransactionAddComponent(route, dataService, location) {
+        this.route = route;
+        this.dataService = dataService;
+        this.location = location;
+        this.displayAsDollar = function (amt) { return '$ ' + amt.toFixed(2); };
+    }
+    TransactionAddComponent.prototype.ngOnInit = function () {
+        this.newTransaction = this.freshNewTransaction();
+        this.form = new forms_1.FormGroup({
+            amount: new forms_1.FormControl(this.newTransaction.amount),
+            category: new forms_1.FormControl(this.newTransaction.category),
+            crAcct: new forms_1.FormControl(this.newTransaction.crAcct),
+            date: new forms_1.FormControl(this.newTransaction.date),
+            drAcct: new forms_1.FormControl(this.newTransaction.drAcct),
+            tax: new forms_1.FormControl(this.newTransaction.tax),
+        });
+    };
+    TransactionAddComponent.prototype.freshNewTransaction = function () {
+        return { id: null, amount: 0, category: 0, crAcct: 0, date: '', drAcct: 0, tax: false };
+    };
+    TransactionAddComponent.prototype.goBack = function () {
+        this.location.back();
+    };
+    TransactionAddComponent.prototype.onSubmit = function () {
+        this.newTransaction.amount = this.form.get('amount').value;
+        this.newTransaction.category = this.form.get('category').value;
+        this.newTransaction.crAcct = this.form.get('crAcct').value;
+        this.newTransaction.date = this.form.get('date').value;
+        this.newTransaction.drAcct = this.form.get('drAcct').value;
+        this.newTransaction.tax = this.form.get('tax').value;
+        this.dataService.addTransaction(this.newTransaction);
+        //reset
+        this.ngOnInit();
+        this.goBack();
+    };
+    TransactionAddComponent = __decorate([
+        core_1.Component({
+            selector: 'transaction-add',
+            template: __webpack_require__("../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.css")]
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            data_service_1.DataService,
+            common_1.Location])
+    ], TransactionAddComponent);
+    return TransactionAddComponent;
+}());
+exports.TransactionAddComponent = TransactionAddComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n}\r\n\r\nlabel {\r\n  width: 100px;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"transactionEdit\">\r\n  <h4>Edit</h4>\r\n\r\n  <form *ngIf=\"form\" [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form.value)\">\r\n    <label>Date</label>\r\n    <input type='date' name=\"date\" formControlName=\"date\" /> <br />\r\n    <label>Category</label>\r\n    <input type='text' name=\"category\" formControlName=\"category\" /> <br />\r\n    <label>Amount<span class=\"pull-right\">$</span></label>\r\n    <input type='number' name=\"amount\" formControlName=\"amount\" /> <br />\r\n    <label>Debit Account</label>\r\n    <input type='text' name=\"drAcct\" formControlName=\"drAcct\" /> <br />\r\n    <label>Credit Account</label>\r\n    <input type='text' name=\"crAcct\" formControlName=\"crAcct\" /> <br />\r\n    <label>Tax</label>\r\n    <input type='checkbox' name=\"tax\" value=\"true\" formControlName=\"tax\" />\r\n    <input type='submit' value=\"Update\" />\r\n    <button routerLink=\"/transactions\">Cancel</button>\r\n  </form>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var TransactionEditComponent = /** @class */ (function () {
+    function TransactionEditComponent(dataService, route, location) {
+        this.dataService = dataService;
+        this.route = route;
+        this.location = location;
+        this.displayAsDollar = function (amt) { return '$ ' + amt.toFixed(2); };
+    }
+    TransactionEditComponent.prototype.ngOnInit = function () {
+        this.createForm();
+    };
+    TransactionEditComponent.prototype.createForm = function () {
+        var _this = this;
+        var id = +this.route.snapshot.paramMap.get('id');
+        this.dataService.getTransaction(id).subscribe(function (transaction) {
+            _this.editTransaction = transaction;
+            _this.instantiateForm();
+        }, function (error) { return alert("there was an error getting transaction."); });
+    };
+    TransactionEditComponent.prototype.instantiateForm = function () {
+        this.form = new forms_1.FormGroup({
+            amount: new forms_1.FormControl(this.editTransaction.amount),
+            category: new forms_1.FormControl(this.editTransaction.category),
+            crAcct: new forms_1.FormControl(this.editTransaction.crAcct),
+            date: new forms_1.FormControl(this.editTransaction.date),
+            drAcct: new forms_1.FormControl(this.editTransaction.drAcct),
+            tax: new forms_1.FormControl(this.editTransaction.tax),
+        });
+    };
+    TransactionEditComponent.prototype.goBack = function () {
+        this.location.back();
+    };
+    TransactionEditComponent.prototype.onSubmit = function () {
+        this.editTransaction.amount = this.form.get('amount').value;
+        this.editTransaction.category = this.form.get('category').value;
+        this.editTransaction.crAcct = this.form.get('crAcct').value;
+        this.editTransaction.date = this.form.get('date').value;
+        this.editTransaction.drAcct = this.form.get('drAcct').value;
+        this.editTransaction.tax = this.form.get('tax').value;
+        this.dataService.updateTransaction(this.editTransaction);
+        //reset
+        this.goBack();
+    };
+    TransactionEditComponent = __decorate([
+        core_1.Component({
+            selector: 'transaction-edit',
+            template: __webpack_require__("../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.css")]
+        }),
+        __metadata("design:paramtypes", [data_service_1.DataService,
+            router_1.ActivatedRoute,
+            common_1.Location])
+    ], TransactionEditComponent);
+    return TransactionEditComponent;
+}());
+exports.TransactionEditComponent = TransactionEditComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"transactions\">\r\n  <p *ngIf=\"!transactions\"><em>Loading...</em></p>\r\n\r\n  <table>\r\n    <caption>Transactions</caption>\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Date</th>\r\n        <th>Amount</th>\r\n        <th>Category</th>\r\n        <th>Debit Account</th>\r\n        <th>Credit Account</th>\r\n        <th>Tax?</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let transaction of transactions\">\r\n        <td>{{transaction.id}}</td>\r\n        <td>{{transaction.date | date}}</td>\r\n        <td className='right'>{{displayAsDollar(transaction.amount)}}</td>\r\n        <td>{{categoryName(transaction.category)}}</td>\r\n        <td>{{accountName(transaction.drAcct)}}</td>\r\n        <td>{{accountName(transaction.crAcct)}}</td>\r\n        <td>&nbsp;<span *ngIf=\"transaction.tax\" class='glyphicon glyphicon-copy' style='color:green;'></span></td>\r\n        <td><a routerLink=\"./transaction-edit/{{transaction.id}}\">Edit</a></td>\r\n        <td><a (click)=\"onDelete(transaction.id);\">Delete</a></td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n  <a routerLink=\"./transaction-add\">Add New Transaction</a>\r\n  <br />\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var TransactionListComponent = /** @class */ (function () {
+    function TransactionListComponent(dataService) {
+        var _this = this;
+        this.dataService = dataService;
+        this.displayAsDollar = function (amt) { return '$ ' + amt.toFixed(2); };
+        this.dataService.transactionAdded.subscribe(function (data) {
+            console.log("transactionAdded received from data.service: " + JSON.stringify(data));
+            if (data === null) {
+                alert("There was a problem adding.");
+            }
+            else {
+                _this.transactions.push(data);
+            }
+        }, function (error) { return alert("There was a problem adding."); });
+        this.dataService.transactionDeleted.subscribe(function (data) {
+            console.log("transactionDeleted received from data.service: " + JSON.stringify(data));
+            if (data === null) {
+                alert("There was a problem deleting.");
+            }
+            else {
+                var indextToDelete = _this.transactions.findIndex(function (element) { return element.id === data.id; });
+                _this.transactions.splice(indextToDelete, 1);
+            }
+        }, function (error) { return alert("There was a problem deleting."); });
+        this.dataService.transactionUpdated.subscribe(function (data) {
+            console.log("transactionUpdated received from data.service: " + JSON.stringify(data));
+            if (data === null) {
+                alert("There was a problem updating.");
+            }
+            else {
+                var indexToUpdate = _this.transactions.findIndex(function (element) { return element.id == data.id; });
+                _this.transactions[indexToUpdate] = data;
+            }
+        }, function (error) { return alert("There was a problem updating."); });
+    } //ctor
+    TransactionListComponent.prototype.ngOnInit = function () {
+        this.getAccounts();
+        this.getCategories();
+        this.getTransactions();
+    };
+    TransactionListComponent.prototype.accountName = function (accountId) {
+        return this.accounts.find(function (element) { return element.id === accountId; }).name;
+    };
+    TransactionListComponent.prototype.categoryName = function (categoryId) {
+        return this.categories.find(function (element) { return element.id === categoryId; }).name;
+    };
+    TransactionListComponent.prototype.getAccounts = function () {
+        var _this = this;
+        this.dataService.getAccounts().subscribe(function (accounts) { return _this.accounts = accounts; }, function (error) { return alert("there was an error getting accounts."); });
+    };
+    TransactionListComponent.prototype.getCategories = function () {
+        var _this = this;
+        this.dataService.getCategories().subscribe(function (categories) { return _this.categories = categories; }, function (error) { return alert("there was an error getting categories."); });
+    };
+    TransactionListComponent.prototype.getTransactions = function () {
+        var _this = this;
+        this.dataService.getTransactions().subscribe(function (transactions) { return _this.transactions = transactions; }, function (error) { return alert("there was an error getting transactions."); });
+    };
+    TransactionListComponent.prototype.onDelete = function (id) {
+        var result;
+        var indextToDelete = this.transactions.findIndex(function (element) { return element.id === id; });
+        var dateToDelete = this.transactions[indextToDelete].date;
+        var confirmation = confirm('Are you sure you want to delete transaction on ' + dateToDelete + '?');
+        if (confirmation) {
+            this.dataService.deleteAccount(id);
+        }
+        ;
+    };
+    TransactionListComponent = __decorate([
+        core_1.Component({
+            selector: 'transaction-list',
+            template: __webpack_require__("../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [data_service_1.DataService])
+    ], TransactionListComponent);
+    return TransactionListComponent;
+}());
+exports.TransactionListComponent = TransactionListComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/transactions.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var transaction_add_component_1 = __webpack_require__("../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.ts");
+var transaction_edit_component_1 = __webpack_require__("../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.ts");
+var transaction_list_component_1 = __webpack_require__("../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.ts");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var transactions_routing_module_1 = __webpack_require__("../../../../../src/modules/transactions/transactions.routing.module.ts");
+var TransactionsModule = /** @class */ (function () {
+    function TransactionsModule() {
+    }
+    TransactionsModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.ReactiveFormsModule,
+                transactions_routing_module_1.TransactionRoutingModule
+            ],
+            declarations: [
+                transaction_add_component_1.TransactionAddComponent,
+                transaction_edit_component_1.TransactionEditComponent,
+                transaction_list_component_1.TransactionListComponent
+            ],
+            providers: [data_service_1.DataService]
+        })
+    ], TransactionsModule);
+    return TransactionsModule;
+}());
+exports.TransactionsModule = TransactionsModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/transactions/transactions.routing.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var transaction_add_component_1 = __webpack_require__("../../../../../src/modules/transactions/components/transaction-add/transaction-add.component.ts");
+var transaction_edit_component_1 = __webpack_require__("../../../../../src/modules/transactions/components/transaction-edit/transaction-edit.component.ts");
+var transaction_list_component_1 = __webpack_require__("../../../../../src/modules/transactions/components/transaction-list/transaction-list.component.ts");
+var transactionsRoutes = [
+    {
+        path: 'transactions',
+        component: transaction_list_component_1.TransactionListComponent,
+        children: [
+            { path: 'transaction-add', component: transaction_add_component_1.TransactionAddComponent },
+            { path: 'transaction-edit/:id', component: transaction_edit_component_1.TransactionEditComponent }
+        ]
+    }
+];
+var TransactionRoutingModule = /** @class */ (function () {
+    function TransactionRoutingModule() {
+    }
+    TransactionRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forChild(transactionsRoutes)
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
+        })
+    ], TransactionRoutingModule);
+    return TransactionRoutingModule;
+}());
+exports.TransactionRoutingModule = TransactionRoutingModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/users/components/user-list/user-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/modules/users/components/user-list/user-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"users\">\r\n  <p *ngIf=\"!users\"><em>Loading...</em></p>\r\n\r\n  <table>\r\n    <caption>Users</caption>\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Username</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.id}}</td>\r\n        <td>{{user.userName}}</td>\r\n        <td><input type='checkbox' checked={{user.admin}} (Change)=\"onToggleAdmin(user.id)\" /></td>\r\n        <td><a (click)=\"onReset(user.id);\">Reset Password</a></td>\r\n        <td><a (click)=\"onDelete(user.id);\">Delete</a></td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/modules/users/components/user-list/user-list.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var UserListComponent = /** @class */ (function () {
+    function UserListComponent(dataService) {
+        var _this = this;
+        this.dataService = dataService;
+        this.dataService.userDeleted.subscribe(function (data) {
+            console.log("accountDeleted received from data.service: " + JSON.stringify(data));
+            if (data === null) {
+                alert("There was a problem deleting.");
+            }
+            else {
+                var indextToDelete = _this.users.findIndex(function (element) { return element.id === data.id; });
+                _this.users.splice(indextToDelete, 1);
+            }
+        }, function (error) { return alert("There was a problem deleting."); });
+    }
+    UserListComponent.prototype.ngOnInit = function () {
+        this.getUsers();
+    };
+    UserListComponent.prototype.getUsers = function () {
+        var _this = this;
+        this.dataService.getUsers().subscribe(function (users) { return _this.users = users; });
+    };
+    UserListComponent.prototype.onDelete = function (id) {
+        var confirmation = confirm('are you sure you want to delete ' + this.users.find(function (element) { return element.id == id; }).userName + '?');
+        if (confirmation) {
+            this.dataService.deleteUser(id);
+        }
+        ;
+    };
+    UserListComponent.prototype.onToggleAdmin = function (id) {
+        var indexToToggle = this.users.findIndex(function (element) { return element.id === id; });
+        if (this.users[indexToToggle].admin === true) {
+            this.users[indexToToggle].admin = false;
+            this.dataService.unmakeAdmin(id);
+        }
+        else {
+            this.users[indexToToggle].admin = true;
+            this.dataService.makeAdmin(id);
+        }
+    };
+    UserListComponent.prototype.onReset = function (id) {
+        this.dataService.resetPassword(id, "Password?123");
+    };
+    UserListComponent = __decorate([
+        core_1.Component({
+            selector: 'user-list',
+            template: __webpack_require__("../../../../../src/modules/users/components/user-list/user-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/modules/users/components/user-list/user-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [data_service_1.DataService])
+    ], UserListComponent);
+    return UserListComponent;
+}());
+exports.UserListComponent = UserListComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/users/users.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var common_1 = __webpack_require__("../../../common/esm5/common.js");
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var user_list_component_1 = __webpack_require__("../../../../../src/modules/users/components/user-list/user-list.component.ts");
+var data_service_1 = __webpack_require__("../../../../../src/modules/shared/data.service.ts");
+var users_routing_module_1 = __webpack_require__("../../../../../src/modules/users/users.routing.module.ts");
+var UsersModule = /** @class */ (function () {
+    function UsersModule() {
+    }
+    UsersModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule,
+                forms_1.ReactiveFormsModule,
+                users_routing_module_1.UserRoutingModule
+            ],
+            declarations: [
+                user_list_component_1.UserListComponent
+            ],
+            providers: [data_service_1.DataService]
+        })
+    ], UsersModule);
+    return UsersModule;
+}());
+exports.UsersModule = UsersModule;
+
+
+/***/ }),
+
+/***/ "../../../../../src/modules/users/users.routing.module.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var user_list_component_1 = __webpack_require__("../../../../../src/modules/users/components/user-list/user-list.component.ts");
+var usersRoutes = [
+    { path: 'users', component: user_list_component_1.UserListComponent }
+];
+var UserRoutingModule = /** @class */ (function () {
+    function UserRoutingModule() {
+    }
+    UserRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forChild(usersRoutes)
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
+        })
+    ], UserRoutingModule);
+    return UserRoutingModule;
+}());
+exports.UserRoutingModule = UserRoutingModule;
 
 
 /***/ }),

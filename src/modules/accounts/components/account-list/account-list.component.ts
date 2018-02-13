@@ -4,8 +4,8 @@ import { Account } from '../../../shared/interfaces';
 
 @Component({
   selector: 'account-list',
-  templateUrl: './accountList.component.html',
-  styleUrls: ['./accountList.component.css']
+  templateUrl: './account-list.component.html',
+  styleUrls: ['./account-list.component.css']
 })
 
 export class AccountListComponent {

@@ -7,8 +7,8 @@ import { Account } from '../../../shared/interfaces';
 
 @Component({
   selector: 'account-add',
-  templateUrl: './accountAdd.component.html',
-  styleUrls: ['./accountAdd.component.css']
+  templateUrl: './account-add.component.html',
+  styleUrls: ['./account-add.component.css']
 })
 
 export class AccountAddComponent {

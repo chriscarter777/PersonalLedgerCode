@@ -7,8 +7,8 @@ import { Category } from '../../../shared/interfaces';
 
 @Component({
     selector: 'category-edit',
-    templateUrl: './categoryEdit.component.html',
-    styleUrls: ['./categoryEdit.component.css']
+    templateUrl: './category-edit.component.html',
+    styleUrls: ['./category-edit.component.css']
 })
 export class CategoryEditComponent {
   editCategory: Category;

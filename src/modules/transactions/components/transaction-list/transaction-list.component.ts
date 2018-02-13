@@ -4,8 +4,8 @@ import { Account, Category, Transaction } from '../../../shared/interfaces';
 
 @Component({
     selector: 'transaction-list',
-    templateUrl: './transactionList.component.html',
-    styleUrls: ['./transactionList.component.css']
+    templateUrl: './transaction-list.component.html',
+    styleUrls: ['./transaction-list.component.css']
 })
 
 export class TransactionListComponent {

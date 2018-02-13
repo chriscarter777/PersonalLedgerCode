@@ -7,8 +7,8 @@ import { Category } from '../../../shared/interfaces';
 
 @Component({
     selector: 'category-add',
-    templateUrl: './categoryAdd.component.html',
-    styleUrls: ['./categoryAdd.component.css']
+    templateUrl: './category-add.component.html',
+    styleUrls: ['./category-add.component.css']
 })
 export class CategoryAddComponent {
   form: FormGroup;
