@@ -1,0 +1,19 @@
+<div class="categoryAdd">
+  <h4>Add</h4>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <label>Name</label>
+    <input type='text' name="name" formControlName="name" /> <br />
+    <label>Type</label>
+    <select name="type" formControlName="type">
+      <option value="Expense">Expense</option>
+      <option value="Income">Income</option>
+      <option value="Other">Other</option>
+    </select> <br />
+    <!--<input type='text' name="type" formControlName="type" /> <br />-->
+    <label>Tax</label>
+    <input type='checkbox' name="tax" value="true" formControlName="tax" /> <br />
+    <input type='submit' value="Add" />
+    <button routerLink="/categories">Cancel</button>
+  </form>
+</div>

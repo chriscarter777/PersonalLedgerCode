@@ -1,0 +1,23 @@
+<div class="users">
+  <p *ngIf="!users"><em>Loading...</em></p>
+
+  <table>
+    <caption>Users</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.userName}}</td>
+        <td><input type='checkbox' checked={{user.admin}} (Change)="onToggleAdmin(user.id)" /></td>
+        <td><a (click)="onReset(user.id);">Reset Password</a></td>
+        <td><a (click)="onDelete(user.id);">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

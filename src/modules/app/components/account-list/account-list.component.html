@@ -1,0 +1,36 @@
+<div class="accounts">
+  <p *ngIf="!accounts"><em>Loading...</em></p>
+
+  <table>
+    <caption>Accounts</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Institution</th>
+        <th>Number</th>
+        <th>Interest</th>
+        <th>Limit</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts">
+        <td>{{account.id}}</td>
+        <td>{{account.acctType}}</td>
+        <td>{{account.name}}</td>
+        <td>{{account.institution}}</td>
+        <td>{{account.number}}</td>
+        <td class='right'>{{displayAsPercent(account.interest)}}</td>
+        <td class='right'>{{account.limit ? displayAsDollar(account.limit) : '--'}}</td>
+        <td class='right'>{{displayAsDollar(account.balance)}}</td>
+        <td><a routerLink="./account-edit/{{account.id}}">Edit</a></td>
+        <td><a (click)="onDelete(account.id);">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="./account-add">Add New Account</a>
+  <br />
+  <router-outlet></router-outlet>
+</div>

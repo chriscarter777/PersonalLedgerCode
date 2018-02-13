@@ -1,0 +1,20 @@
+<div class="transactionAdd">
+  <h4>Add</h4>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <label>Date</label>
+    <input type='date' name="date" formControlName="date" /> <br />
+    <label>Category</label>
+    <input type='text' name="category" formControlName="category" /> <br />
+    <label>Amount<span class="pull-right">$</span></label>
+    <input type='number' name="amount" formControlName="amount" /> <br />
+    <label>Debit Account</label>
+    <input type='text' name="drAccount" formControlName="drAccount" /> <br />
+    <label>Credit Account</label>
+    <input type='text' name="crAccount" formControlName="crAccount" /> <br />
+    <label>Tax</label>
+    <input type='checkbox' name="tax" value="true" formControlName="tax" />
+    <input type='submit' value="Add" />
+    <button routerLink="/transactions">Cancel</button>
+  </form>
+</div>
